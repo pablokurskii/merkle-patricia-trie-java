@@ -1,0 +1,38 @@
+plugins {
+    //support Idea IDE
+    id 'idea'
+    id "io.spring.dependency-management" version "1.0.11.RELEASE"
+}
+
+idea {
+    project {
+        languageLevel = 17
+    }
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+allprojects {
+    group "kurskii.pavel"
+
+    repositories {
+        mavenCentral()
+    }
+
+    apply plugin: "io.spring.dependency-management"
+    dependencyManagement {
+        dependencies {
+            imports {
+                mavenBom("org.springframework.boot:spring-boot-dependencies:${Versions.spring_boot_dependencies}")
+            }
+            dependency("com.google.errorprone:error_prone_core:${Versions.error_prone_core}")
+        }
+    }
+    configurations.all {
+        resolutionStrategy{
+            failOnVersionConflict()
+        }
+    }
+}
