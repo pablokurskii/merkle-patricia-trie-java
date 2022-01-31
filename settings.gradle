@@ -1,2 +1,3 @@
 rootProject.name = 'merkle-patricia-trie-java'
+include 'rlp'
 

@@ -15,7 +15,7 @@ idea {
 }
 
 allprojects {
-    group "kurskii.pavel"
+    group "studio.albi"
 
     repositories {
         mavenCentral()
@@ -28,6 +28,8 @@ allprojects {
                 mavenBom("org.springframework.boot:spring-boot-dependencies:${Versions.spring_boot_dependencies}")
             }
             dependency("com.google.errorprone:error_prone_core:${Versions.error_prone_core}")
+            dependency("org.openjdk.jmh:jmh-core:${Versions.jmh}")
+            dependency("org.openjdk.jmh:jmh-generator-annprocess:${Versions.jmh}")
         }
     }
     configurations.all {
